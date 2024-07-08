@@ -1,0 +1,55 @@
+@font-face {
+  font-family: myFont;
+  src: url("Fonts/IRANYekanMobileRegular.ttf");
+}
+@font-face {
+  font-family: my_second_font;
+  src: url("Fonts/IRANYekanMobileBold.ttf");
+}
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+}
+body{
+    background-color:rgba(240,248,255,255);
+}
+input{
+    margin-left: 25%;
+    width: 50%;
+    height: 7%;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(128,128,128 , 0.3);
+}
+
+::placeholder {
+  color: rgba(128,128,128 , 1);
+  font-size: small;
+  font-family: myFont;
+}
+.btn{
+    background-color:#faa71c;
+    border: none;
+    color: aliceblue;
+    font-size: small;
+    border-radius: 7px;
+    opacity: 1;
+    font-family: my_second_font;
+}
+p{
+    color:tomato;
+    text-align: center;
+    font-size: small;
+}
+a p{
+    font-size: small;
+    color: rgba(128,128,128 , 1);
+    text-decoration: none;
+    font-family: myFont;
+}
+big{
+    color:tomato;
+}
