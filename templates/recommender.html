@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Control Panel</title>
+        <link rel="stylesheet" href="static/recommenderStyles.css">
+    </head>
+    <body>
+      <div class="header">
+          <nav class="navigation">
+              <a href="/profile">Profile</a>
+              <a href="/panel">Control Panel</a>
+              <a href="/recommender" style="color: #28a9e5;">Recommender</a>
+          </nav>
+      </div>
+      <div class="wrapper">
+        <form action="/recommender" method="post">
+          <input type="text" name="temperature" placeholder="Enter temperature (°C)">
+          <input type="text" name="humidity" placeholder="Enter soil moisture (%)">
+          <input type="text" name="rainfall" placeholder="Enter rainfall (mm)">
+          <button type="submit">Sumbit</button>
+        </form>
+        <br>
+        {%if result != "empty"%}
+          <p>The recommended crop is {{result}}</p><br>
+          <img src="static/crops/{{result}}.jpg" alt=""><br>
+          <br>
+          <table border = 1>
+            {% for key, value in data.items() %}
+              <tr>
+                <th> {{ key }} </th>
+                <td> {{ value }} </td>
+              </tr>
+            {% endfor %}
+          </table>
+        {%endif%}
+        <br>
+      </div>
+    </body>
+</html>

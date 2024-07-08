@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Control Panel</title>
+        <link rel="stylesheet" href="static/panelStyles.css">
+    </head>
+    <body>
+      <div class="header">
+          <nav class="navigation">
+              <a href="/profile">Profile</a>
+              <a href="/panel" style="color: #28a9e5;">Control Panel</a>
+              <a href="/recommender">Recommender</a>
+          </nav>
+      </div>
+      <div class="wrapper">
+        <form action="/apply" method="post">
+          <label for="crops"><p>{{message}}</p></label>
+          <p>{{tempStatus}}</p>
+          <p>{{humStatus}}</p><br>
+          {%if df['crop'][0] == 'empty'%}
+            <select name="crops">
+              <option value="empty" disabled selected="selected">Select an item</option>
+              {%for crop in crops%}
+                <option value="{{crop}}">{{crop}}</option>
+              {%endfor%}
+            </select>
+          {%else%}
+            <select name="crops">
+            <option value="{{df['crop'][0]}}" disabled selected="selected">{{df['crop'][0]}}</option>
+            {%for crop in crops%}
+              <option value="{{crop}}">{{crop}}</option>
+            {%endfor%}
+          </select><br>
+          <img src="static/crops/{{df['crop'][0]}}.jpg" alt="">
+          {%endif%}
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </body>
+</html>

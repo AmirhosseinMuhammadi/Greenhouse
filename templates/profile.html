@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="static/profileStyles.css">
+</head>
+<body>
+    <div class="header">
+        <nav class="navigation">
+            <a href="/profile" style="color: #28a9e5;" class="profile">Profile</a>
+            <a href="/panel" class="panel">Control Panel</a>
+            <a href="/recommender">Recommender</a>
+        </nav>
+    </div>
+    <div class="wrapper">
+        <img class="image-box" src="{{profilePhoto}}">
+        <h3 style="text-align: left;">Username: {{session["username"]}}</h3><br>
+        <form action="/profile" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file"><br><br>
+            <div class="text-propety">
+                <p style="color: black;text-align:left;font-size:small;">Enter your email address to protect your account</p>
+            </div>
+            <div class="input-box">
+                {%if email == "empty"%}
+                    <input type="email" name="email" placeholder="Enter your email address">
+                {%else%}
+                    <input type="text" name="email" placeholder={{email}}>
+                {%endif%}
+            </div>
+            <div class="text-propety">
+                <p style="color: black;text-align:left;font-size:small;">Change your password</p>
+            </div>
+            <div class="input-box">
+                <input type="password" name="newpass" placeholder="Enter your new password">
+            </div>
+            <div class="input-box">
+                <input type="password" name = "secondnewpass" placeholder="Submit your new password">
+            </div>
+            <input type ="submit" class="btn-1" value="Submit changes"><br>
+        </form>
+        <a href="/logout"><button type ="submit" class="btn-2">Log out</button></a><br>
+        <a href="/delete-account"><button type ="submit" class="btn-3">Delete account</button></a>
+    </div>
+</body>
+</html>

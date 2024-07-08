@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="static/registerStyles.css">
+        <title>Sign up</title>
+    </head>
+    <body>
+        <img src="static/logo.png" alt="">
+        <form action="/sign-up" method="post">
+            <input type="text" name="username" placeholder="Enter your username" required><br><br>
+            <input type="password" name="password" placeholder="Enter your password" required><br><br>
+            <input type="submit" value="Sign up" class="btn">
+        </form>
+        <a href="/login"><p>Already have an account?  <br> <big>Sign in</big> from here.</p></a>
+        <p>{{message}}</p>
+    </body>
+</html>
