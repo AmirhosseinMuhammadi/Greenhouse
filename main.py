@@ -104,7 +104,15 @@ def panel():
             message = f"The greenhouse contains {df['crop'][0]}. Feel free to change the crop."
             tempStatus = f"The desired temperature is {round(df['temperature'][0])}°C"
             humStatus = f"The desired humidity is {round(df['humidity'][0])}%"
-        return render_template("panel.html" , message = message , tempStatus = tempStatus , humStatus = humStatus , crops = crops , df=df)
+            for i in range(len(data["Crop"])):
+                if data["Crop"][i] == df['crop'][0]:
+                    data = {"Nitrogen": round(data["Nitrogen"][i] , 2) ,
+                    "Phosphorus" : round(data["Phosphorus"][i],2) ,
+                    "Potassium" : round(data["Potassium"][i] , 2) ,
+                    "pH value" : round(data["pH_Value"][i] , 2)}
+                    break
+
+        return render_template("panel.html" , message = message , tempStatus = tempStatus , humStatus = humStatus , crops = crops , df=df , data = data)
     else:
         return redirect("/login")
 
@@ -129,7 +137,6 @@ def apply():
                 df.to_csv(f"{session['username']}.csv")
 
                 thread = threading.Thread(target=send_data , args = (f"{temp},{humidity}\r\n" , "ws://192.168.43.49:81"))
-                thread.start()
             except:
                 return redirect("/panel")
 
