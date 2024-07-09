@@ -103,3 +103,25 @@ img{
   border: 0px black solid;
   border-radius: 7px;
 }
+table {
+  display: block;
+    border-collapse: collapse;
+    width: 250px;
+    font-family: myFont;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-family: myFont;
+    width: 125px;
+}
+
+th {
+    background-color: #f0f0f0;
+    font-family: myFont;
+    width: 125px;
+}
